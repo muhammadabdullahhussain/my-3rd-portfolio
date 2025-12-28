@@ -6,7 +6,7 @@ const Loader = () => {
   const { progress, total } = useProgress();
 
   useGSAP(() => {
-    if (total === 20 && progress === 100) {
+    if (progress === 100) {
       gsap.to(".loader-screen", {
         y: "-100%",
         duration: 1,
