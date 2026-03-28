@@ -186,12 +186,14 @@ const ChatBot = () => {
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end pointer-events-none">
       {/* Bot Window */}
       <div
-        className={`pointer-events-auto flex flex-col bg-[#0d091a]/95 backdrop-blur-2xl border border-white/10 rounded-[28px] overflow-hidden mb-6 shadow-[0_25px_80px_rgba(0,0,0,0.6)] transition-all duration-500 cubic-bezier(0.19, 1, 0.22, 1) transform ${
-          isOpen ? "scale-100 opacity-100 translate-y-0 w-[90vw] md:w-[420px] h-[600px]" : "scale-[0.85] opacity-0 translate-y-20 pointer-events-none w-[380px] h-0"
+        className={`pointer-events-auto flex flex-col bg-[#0d091a]/95 backdrop-blur-2xl border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.6)] transition-all duration-500 cubic-bezier(0.19, 1, 0.22, 1) transform overflow-hidden ${
+          isOpen 
+            ? "scale-100 opacity-100 translate-y-0 w-full h-[100dvh] fixed inset-0 md:relative md:inset-auto md:w-[420px] md:h-[600px] md:rounded-[28px] md:mb-6 rounded-none z-[10000]" 
+            : "scale-[0.85] opacity-0 translate-y-20 pointer-events-none w-[380px] h-0 rounded-[28px]"
         }`}
       >
         {/* Header */}
-        <div className="relative h-28 flex-shrink-0 flex items-center px-6 overflow-hidden">
+        <div className="relative h-28 md:h-28 flex-shrink-0 flex items-center px-6 overflow-hidden max-md:pt-6">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-pink-600/30 animate-pulse"></div>
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           
