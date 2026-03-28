@@ -1,0 +1,13 @@
+export { default as Loader } from "./Loader";
+export { default as NavBar } from "./NavBar";
+export { default as Hero } from "../sections/Hero";
+export { default as About } from "../sections/About";
+export { default as Experience } from "../sections/Experience";
+export { default as Education } from "../sections/Education";
+export { default as Services } from "../sections/Services";
+export { default as Skills } from "../sections/Skills";
+export { default as TechStack } from "../sections/TechStack";
+export { default as Projects } from "../sections/Projects";
+export { default as Testimonials } from "../sections/Testimonials";
+export { default as Contact } from "../sections/Contact";
+export { default as Footer } from "./Footer";
