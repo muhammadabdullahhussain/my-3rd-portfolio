@@ -301,6 +301,21 @@ const servicesList = [
 // Projects
 const projectsList = [
   {
+    id: 18,
+    title: "BondUs — Connect & Chat",
+    category: "mobile",
+    description:
+      "A proximity-based social ecosystem connecting you with local communities and professionals within a 25km radius.",
+    longDesc:
+      "BondUs bridges the gap between digital interaction and real-world connection. Users can discover experts nearby, join interest-led group chats, and build meaningful professional networks using smart filters and map-based discovery.",
+    img: "/apps screenshots/2a029619-77e0-4f95-8834-7af69eac8290.jpeg",
+    tech: ["React Native", "Firebase", "Node.js", "Google Maps API"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    color: "#6366f1",
+  },
+  {
     id: 1,
     title: "Shipday Dashboard",
     category: "web",
@@ -554,21 +569,6 @@ const projectsList = [
     githubUrl: "#",
     featured: false,
     color: "#c084fc",
-  },
-  {
-    id: 18,
-    title: "BondUs — Connect & Chat",
-    category: "mobile",
-    description:
-      "A proximity-based social ecosystem connecting you with local communities and professionals within a 25km radius.",
-    longDesc:
-      "BondUs bridges the gap between digital interaction and real-world connection. Users can discover experts nearby, join interest-led group chats, and build meaningful professional networks using smart filters and map-based discovery.",
-    img: "/apps screenshots/2a029619-77e0-4f95-8834-7af69eac8290.jpeg",
-    tech: ["React Native", "Firebase", "Node.js", "Google Maps API"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    color: "#6366f1",
   },
 ];
 

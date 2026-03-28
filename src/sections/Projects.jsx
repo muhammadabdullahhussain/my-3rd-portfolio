@@ -94,7 +94,7 @@ const ProjectModal = ({ project, onClose }) => {
           ✕
         </button>
 
-        <div className="w-full bg-black/20 relative flex items-center justify-center overflow-hidden h-64 sm:h-80 md:h-[400px]">
+        <div className="w-full bg-black/40 relative flex items-center justify-center overflow-hidden h-64 sm:h-80 md:h-[400px]">
           <img 
             src={project.img} 
             alt={project.title} 
