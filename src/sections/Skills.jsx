@@ -38,7 +38,7 @@ const Skills = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Title */}
                 <div className="skills-title-wrap mb-16 opacity-0">
-                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">05 — Skills</span>
+                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">03 — Skills</span>
                     <h2 className="text-5xl md:text-7xl font-bold gradient-title leading-tight">My Expertise</h2>
                     <p className="text-white/50 text-lg mt-4 max-w-xl">Tools and technologies I've mastered over the years.</p>
                 </div>

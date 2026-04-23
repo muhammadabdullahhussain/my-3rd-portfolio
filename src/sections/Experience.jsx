@@ -32,7 +32,7 @@ const Experience = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Title */}
                 <div className="exp-title-wrap mb-16 opacity-0">
-                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">02 — Experience</span>
+                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">04 — Experience</span>
                     <h2 className="text-5xl md:text-7xl font-bold gradient-title leading-tight">Work History</h2>
                     <p className="text-white/50 text-lg mt-4 max-w-xl">
                         Years of crafting real-world solutions for clients across the globe.

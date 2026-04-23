@@ -60,7 +60,7 @@ const Testimonials = () => {
         <div className="max-w-7xl mx-auto px-6">
           {/* Title */}
           <div className="testi-title-wrap mb-16 opacity-0 text-center">
-            <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">07 — Testimonials</span>
+            <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">06 — Testimonials</span>
             <h2 className="text-5xl md:text-7xl font-bold gradient-title leading-tight mb-4">Client Reviews</h2>
             <p className="text-white/50 text-lg max-w-lg mx-auto">
               What my clients say about working with me.

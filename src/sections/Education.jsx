@@ -32,7 +32,7 @@ const Education = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Title */}
                 <div className="edu-title-wrap mb-16 opacity-0">
-                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">03 — Education</span>
+                    <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">07 — Education</span>
                     <h2 className="text-5xl md:text-7xl font-bold gradient-title leading-tight">Academic Background</h2>
                     <p className="text-white/50 text-lg mt-4 max-w-xl">
                         Formal education and professional certifications that shaped my expertise.

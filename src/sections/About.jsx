@@ -82,10 +82,10 @@ const About = () => {
               </div>
               <div className="space-y-6">
                 <p className="text-white/70 text-lg sm:text-xl leading-relaxed font-medium">
-                  Based in <span className="text-white underline decoration-blue-500 underline-offset-4">Lahore, Pakistan</span> — I specialize in crafting full-spectrum digital experiences that resonate.
+                  Based in <span className="text-white underline decoration-blue-500 underline-offset-4">Pakistan</span> — I am a Full Stack Developer & Shopify Expert with over <span className="text-white font-bold underline decoration-pink-500 underline-offset-4">4 years</span> of professional experience.
                 </p>
                 <p className="text-white/50 text-base sm:text-lg leading-relaxed">
-                  With a global footprint spanning the US, UK, and Europe, I've transformed 50+ complex visions into high-performing realities. I don't just write code; I build ecosystems that empower businesses and delight users.
+                  I specialize in building high-performance e-commerce ecosystems using Shopify, WooCommerce, and the MERN stack. From custom Shopify App development to complex enterprise dashboards, I've transformed 100+ visions into scalable, revenue-driving realities for global clients.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-10">

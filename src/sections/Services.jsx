@@ -32,7 +32,7 @@ const Services = () => {
                 {/* Title */}
                 <div className="svc-title-wrap mb-16 opacity-0 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
-                        <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">04 — Services</span>
+                        <span className="text-white/30 text-sm font-medium tracking-[0.3em] uppercase mb-3 block">05 — Services</span>
                         <h2 className="text-5xl md:text-7xl font-bold gradient-title leading-tight">What I Offer</h2>
                     </div>
                     <p className="text-white/50 text-lg max-w-sm md:text-right">

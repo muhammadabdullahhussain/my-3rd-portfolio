@@ -2,19 +2,18 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 import { projectsList, projectCategories } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectCard = ({ project, onClick }) => {
-  const isMobile = project.category === "mobile";
-  
   return (
     <div
       className="project-card group cursor-pointer h-full flex flex-col"
       onClick={() => onClick(project)}
     >
-      <div className={`relative overflow-hidden transition-all duration-500 ${isMobile ? "aspect-[16/10]" : "aspect-[16/10]"}`}>
+      <div className="relative overflow-hidden aspect-[16/10]">
         <img
           src={project.img}
           alt={project.title}
@@ -35,14 +34,8 @@ const ProjectCard = ({ project, onClick }) => {
         {/* Overlay with buttons */}
         <div className="project-card-overlay flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
           <div className="flex gap-3 w-full">
-            {project.liveUrl !== "#" && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-                className="btn-primary text-xs py-2 px-4 flex-1 text-center justify-center">
-                <span>Live Demo</span>
-              </a>
-            )}
-            <button className="btn-outline text-xs py-2 px-4 flex-1 text-center justify-center backdrop-blur-md bg-white/5 border-white/10 hover:bg-white/10">
-              View Details
+            <button className="btn-primary text-xs py-2 px-4 flex-1 text-center justify-center">
+              <span>View Case Study</span>
             </button>
           </div>
         </div>
@@ -65,89 +58,6 @@ const ProjectCard = ({ project, onClick }) => {
               {t}
             </span>
           ))}
-          {project.tech.length > 3 && (
-            <span className="px-2 py-1 rounded-full text-[10px] font-bold text-white/40">
-              +{project.tech.length - 3}
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ProjectModal = ({ project, onClose }) => {
-  if (!project) return null;
-  const isMobile = project.category === "mobile";
-
-  return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6" onClick={onClose}>
-      <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" />
-      <div
-        className="relative max-w-4xl w-full glass-card border-white/10 overflow-hidden max-h-[90vh] flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button 
-          onClick={onClose} 
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-all z-50 backdrop-blur-md"
-        >
-          ✕
-        </button>
-
-        <div className="w-full bg-black/40 relative flex items-center justify-center overflow-hidden h-64 sm:h-80 md:h-[400px]">
-          <img 
-            src={project.img} 
-            alt={project.title} 
-            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-8">
-             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white">
-                {project.category}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full p-8 sm:p-12 overflow-y-auto custom-scrollbar">
-          <div className="mb-10">
-            <h2 className="text-white text-3xl sm:text-5xl font-black mb-6 leading-tight uppercase tracking-tighter italic">
-              {project.title.split(" — ")[0]}
-              {project.title.includes(" — ") && (
-                <>
-                  <br />
-                  <span className="text-white/40 not-italic font-light">{project.title.split(" — ")[1]}</span>
-                </>
-              )}
-            </h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-8 font-light italic border-l-2 border-white/10 pl-6">
-              "{project.longDesc}"
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
-            <div>
-              <h4 className="text-white/30 text-[10px] font-black uppercase tracking-[0.3em] mb-4">Core Technologies</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((t) => (
-                  <span key={t} className="px-4 py-2 rounded-lg text-xs font-bold bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 transition-colors">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-end justify-end self-end">
-              {project.liveUrl !== "#" && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto text-center justify-center py-4 px-10">
-                  <span>Explore Live →</span>
-                </a>
-              )}
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-outline w-full sm:w-auto text-center justify-center py-4 px-10 bg-white/5 border-white/10">
-                Source Code
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -156,12 +66,16 @@ const ProjectModal = ({ project, onClose }) => {
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [selectedProject, setSelectedProject] = useState(null);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   const filtered = projectsList.filter((p) =>
     activeFilter === "all" ? true : p.category === activeFilter
   );
+
+  const handleProjectClick = (project) => {
+    navigate(`/project/${project.slug}`);
+  };
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -184,13 +98,11 @@ const Projects = () => {
       <div className="gradient-sphere projects-sphere-1" />
       <div className="gradient-sphere projects-sphere-2" />
 
-      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
-
       <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
         {/* Title */}
         <div className="proj-title-wrap mb-16 opacity-0 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
           <div>
-            <span className="text-blue-400 text-xs sm:text-sm font-bold tracking-[0.4em] uppercase mb-4 block">06 — Featured Works</span>
+            <span className="text-blue-400 text-xs sm:text-sm font-bold tracking-[0.4em] uppercase mb-4 block">02 — Portfolio</span>
             <h2 className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl font-black gradient-title leading-[1.1]">Selected <br className="hidden md:block" /> Projects</h2>
           </div>
           <p className="text-white/50 text-lg max-w-sm leading-relaxed lg:pb-2">
@@ -215,7 +127,7 @@ const Projects = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((project) => (
             <div key={project.id} className="proj-card-item group">
-              <ProjectCard project={project} onClick={setSelectedProject} />
+              <ProjectCard project={project} onClick={handleProjectClick} />
             </div>
           ))}
         </div>

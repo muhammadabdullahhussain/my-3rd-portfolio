@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { navItems } from "../constants";
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -12,8 +15,13 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // IntersectionObserver to track active section
+  // IntersectionObserver to track active section (only on home page)
   useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
     const sections = navItems.map((item) => item.href.slice(1));
     const observers = [];
     sections.forEach((id) => {
@@ -27,24 +35,34 @@ const NavBar = () => {
       observers.push(obs);
     });
     return () => observers.forEach((obs) => obs.disconnect());
-  }, []);
+  }, [location.pathname]);
 
   const handleNavClick = (href) => {
     setMenuOpen(false);
     const id = href.slice(1);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation and then scroll
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <>
       <nav
-        className={`w-full fixed z-50 top-0 left-0 transition-all duration-500 ${scrolled ? "nav-scrolled" : "bg-transparent"
+        className={`w-full fixed z-50 top-0 left-0 transition-all duration-500 ${scrolled || location.pathname !== "/" ? "nav-scrolled" : "bg-transparent"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" onClick={() => handleNavClick("#home")} className="flex items-center gap-3 group">
+          <Link to="/" onClick={() => handleNavClick("#home")} className="flex items-center gap-3 group">
             <img
               src="/images/logo.png"
               alt="logo"
@@ -53,7 +71,7 @@ const NavBar = () => {
             <span className="hidden sm:block text-white font-bold tracking-wide text-sm">
               Abdullah<span className="gradient-title-blue">.</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">

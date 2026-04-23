@@ -5,10 +5,10 @@ import HeroExperience from "../components/HeroExperience";
 
 const ROLES = [
   "Full Stack Developer",
-  "UI/UX Designer",
-  "3D Web Creator",
-  "React Specialist",
-  "Creative Thinker",
+  "Shopify App Developer",
+  "MERN Stack Expert",
+  "Next.js Specialist",
+  "E-commerce Strategist",
 ];
 
 const Hero = () => {
@@ -137,11 +137,11 @@ const Hero = () => {
             </div>
 
             <p className="hero-desc text-white/70 text-xl leading-relaxed max-w-lg opacity-0 font-medium">
-              I architect{" "}
+              With over{" "}
               <span className="text-white font-bold border-b-2 border-blue-500/30">
-                high-performance digital solutions
-              </span>{" "}
-              where cutting-edge technology meets breathtaking design.
+                4 years of professional experience
+              </span>, 
+              I build scalable Full Stack apps and specialized Shopify/WooCommerce solutions that drive growth.
             </p>
 
             {/* CTAs */}

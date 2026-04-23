@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import {
   Loader,
   NavBar,
-  Hero,
-  About,
-  Experience,
-  Education,
-  Services,
-  Skills,
-  Projects,
-  Testimonials,
-  Contact,
   Footer,
   ChatBot,
 } from "./sections";
+import Home from "./pages/Home";
+import ProjectDetails from "./pages/ProjectDetails";
 import { Suspense } from "react";
 
 // Back to top button
@@ -79,34 +73,40 @@ const CustomCursor = () => {
 };
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Hide loader after a delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
-    <div className="bg-black-100 relative w-full min-h-screen overflow-x-hidden">
+    <div className="relative bg-[#030014] selection:bg-blue-500/30 selection:text-white">
       {/* Custom cursor elements */}
       <div className="cursor-dot hidden md:block" />
       <div className="cursor-ring hidden md:block" />
       <CustomCursor />
 
-      {/* Loading screen */}
-      <Suspense fallback={null}>
-        <Loader />
-      </Suspense>
-
-      {/* Fixed elements */}
+      {loading && <Loader />}
+      
       <NavBar />
       <BackToTop />
 
-      {/* Page sections */}
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Services />
-        <Skills />
-        <Projects />
-        <Testimonials />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:slug" element={<ProjectDetails />} />
+      </Routes>
+
       <Footer />
       <ChatBot />
     </div>
