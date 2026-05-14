@@ -76,15 +76,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  useEffect(() => {
-    // Hide loader after a delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,7 +88,7 @@ const App = () => {
       <div className="cursor-ring hidden md:block" />
       <CustomCursor />
 
-      {loading && <Loader />}
+      {loading && <Loader onComplete={() => setLoading(false)} />}
       
       <NavBar />
       <BackToTop />

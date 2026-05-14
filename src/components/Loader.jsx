@@ -1,9 +1,41 @@
+import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { useProgress } from "@react-three/drei";
 import gsap from "gsap";
 
-const Loader = () => {
-  const { progress } = useProgress();
+const Loader = ({ onComplete }) => {
+  const [progress, setProgress] = useState(0);
+
+  // Smooth fake progress
+  useEffect(() => {
+    let currentProgress = 0;
+    const interval = setInterval(() => {
+      // Fast at first, then slow down, then finish
+      if (currentProgress < 85) {
+        currentProgress += Math.random() * 15;
+      } else if (currentProgress < 99) {
+        currentProgress += Math.random() * 2;
+      }
+      
+      if (currentProgress > 100) currentProgress = 100;
+      
+      setProgress(Math.floor(currentProgress));
+      
+      if (currentProgress === 100) {
+        clearInterval(interval);
+      }
+    }, 150);
+
+    // Force complete after a maximum time (e.g. 2.5s) to never hang
+    const maxTimeout = setTimeout(() => {
+      setProgress(100);
+      clearInterval(interval);
+    }, 2500);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(maxTimeout);
+    };
+  }, []);
 
   useGSAP(() => {
     if (progress >= 100) {
@@ -14,17 +46,16 @@ const Loader = () => {
         ease: "power2.inOut",
         delay: 0.3,
         onComplete: () => {
-          const el = document.querySelector(".loader-screen");
-          if (el) el.style.display = "none";
+          if (onComplete) onComplete();
         },
       });
     }
-  }, [progress]);
+  }, [progress, onComplete]);
 
   return (
-    <div className="loader-screen">
+    <div className="loader-screen fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#030014]">
       {/* Logo */}
-      <div className="relative">
+      <div className="relative mb-8">
         <div
           className="w-20 h-20 rounded-2xl flex items-center justify-center animate-pulse-glow"
           style={{ background: "linear-gradient(135deg,#598eff,#1c34ff)" }}
@@ -49,6 +80,7 @@ const Loader = () => {
             strokeDasharray="226"
             strokeDashoffset={226 - (226 * progress) / 100}
             strokeLinecap="round"
+            className="transition-all duration-300 ease-out"
           />
           <defs>
             <linearGradient id="loader-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -60,7 +92,7 @@ const Loader = () => {
       </div>
 
       {/* Progress text */}
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-3 mb-8">
         <p className="gradient-title text-xl font-bold tracking-widest">
           Muhammad Abdullah
         </p>
@@ -68,16 +100,16 @@ const Loader = () => {
       </div>
 
       {/* Progress bar */}
-      <div className="loader-progress-bar">
+      <div className="loader-progress-bar w-64 h-1 bg-white/10 rounded-full overflow-hidden mb-6">
         <div
-          className="loader-progress-fill"
-          style={{ width: `${Math.min(progress, 100)}%` }}
+          className="loader-progress-fill h-full bg-gradient-to-r from-[#598eff] to-[#ff28d5] transition-all duration-300 ease-out"
+          style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Percentage */}
       <p className="gradient-title-blue text-3xl font-bold tabular-nums">
-        {Math.floor(Math.min(progress, 100))}%
+        {progress}%
       </p>
     </div>
   );
