@@ -21,8 +21,8 @@ const Home = () => {
       <Skills />
       <Experience />
       <Services />
-      <Testimonials />
       <Education />
+      <Testimonials />
       <Contact />
     </main>
   );

@@ -62,45 +62,60 @@ const iconsList = [
 // Skill Categories
 const skillCategories = [
   {
-    category: "Full Stack & CMS",
+    category: "Full Stack & Web",
     color: "#598eff",
-    skills: [
-      { name: "Next.js / React", level: 95 },
-      { name: "Shopify App Dev", level: 92 },
-      { name: "WooCommerce / WP", level: 90 },
-      { name: "TypeScript", level: 88 },
-      { name: "Node.js / Express", level: 90 },
-    ],
+    icon: "💻",
+    description: "Architecting and building responsive, high-performance web applications.",
+    skills: ["MERN Stack", "Next.js", "React.js", "Node.js & Express", "PHP", "Laravel"],
   },
   {
-    category: "Shopify Expertise",
-    color: "#95bf47",
-    skills: [
-      { name: "Remix / Polaris", level: 94 },
-      { name: "GraphQL / APIs", level: 85 },
-      { name: "Theme Customization", level: 98 },
-      { name: "App Extensions", level: 88 },
-    ],
-  },
-  {
-    category: "Databases & UI",
+    category: "Frontend & 3D",
     color: "#ff28d5",
-    skills: [
-      { name: "MongoDB / MySQL", level: 88 },
-      { name: "Supabase", level: 85 },
-      { name: "Tailwind / Shadcn", level: 95 },
-      { name: "React Native", level: 82 },
-    ],
+    icon: "✨",
+    description: "Crafting beautiful, interactive UIs with modern animations and 3D graphics.",
+    skills: ["Three.js", "WebGL", "Framer Motion", "GSAP", "Tailwind CSS", "HTML5/CSS3"],
   },
   {
-    category: "Tools & DevOps",
+    category: "Mobile App Dev",
+    color: "#C8D751",
+    icon: "📱",
+    description: "Developing cross-platform and native-like mobile applications.",
+    skills: ["React Native (CLI)", "Expo", "iOS Development", "Android Dev", "Mobile UI/UX"],
+  },
+  {
+    category: "Databases & ORMs",
+    color: "#06b6d4",
+    icon: "s🗄️",
+    description: "Designing robust server-side data architectures and managing scalable systems.",
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Prisma", "Sequelize"],
+  },
+  {
+    category: "BaaS & Cloud",
+    color: "#fbbf24",
+    icon: "☁️",
+    description: "Leveraging scalable Backend-as-a-Service platforms for rapid development.",
+    skills: ["Firebase", "Supabase", "Appwrite", "Cloud Functions", "Realtime DBs"],
+  },
+  {
+    category: "Shopify Ecosystem",
+    color: "#95bf47",
+    icon: "🛍️",
+    description: "Creating custom headless storefronts and scalable public/custom apps.",
+    skills: ["Custom App Dev (Remix)", "Store Development", "Liquid", "Storefront API", "Polaris"],
+  },
+  {
+    category: "WordPress & CMS",
+    color: "#a855f7",
+    icon: "📝",
+    description: "Developing bespoke themes, powerful plugins, and e-commerce solutions.",
+    skills: ["Custom Plugin Dev", "Theme Development", "WooCommerce", "Headless WP", "PHP"],
+  },
+  {
+    category: "DevOps & Deployment",
     color: "#ff6b35",
-    skills: [
-      { name: "Git & GitHub", level: 93 },
-      { name: "CI/CD Workflows", level: 80 },
-      { name: "Firebase / Vercel", level: 90 },
-      { name: "RESTful APIs", level: 92 },
-    ],
+    icon: "🚀",
+    description: "Ensuring smooth deployments, version control, and scalable infrastructure.",
+    skills: ["AWS / VPS", "Docker", "CI/CD Pipelines", "Vercel", "Git/GitHub", "Linux"],
   },
 ];
 
@@ -291,36 +306,60 @@ const servicesList = [
 // Projects
 const projectsList = [
   {
-    id: 18,
-    title: "BondUs — Connect & Chat",
-    category: "mobile",
-    description:
-      "A proximity-based social ecosystem connecting you with local communities and professionals within a 25km radius.",
-    longDesc:
-      "BondUs bridges the gap between digital interaction and real-world connection. Users can discover experts nearby, join interest-led group chats, and build meaningful professional networks using smart filters and map-based discovery.",
-    img: "/apps screenshots/2a029619-77e0-4f95-8834-7af69eac8290.jpeg",
-    tech: ["React Native", "Firebase", "Node.js", "Google Maps API"],
+    id: 20,
+    slug: "ticket-management",
+    title: "Ticket Management — Admin Suite",
+    category: "web",
+    description: "A robust ticket management system for businesses to track and resolve customer inquiries efficiently.",
+    longDesc: "Built a comprehensive ticketing platform with real-time updates, role-based access control, and advanced filtering. The system streamlines customer support workflows and provides insightful analytics on team performance.",
+    img: "/ticket managemtn website project/ticket-management - website proejct  (1).jpeg",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
-    color: "#6366f1",
+    color: "#3b82f6",
+    gallery: [
+      "/ticket managemtn website project/ticket-management - website proejct  (1).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (2).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (3).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (4).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (5).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (6).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (7).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (8).jpeg",
+      "/ticket managemtn website project/ticket-management - website proejct  (9).jpeg"
+    ]
   },
   {
-    id: 1,
-    slug: "mannorwear",
-    title: "MannorWear — Fashion E-commerce",
+    id: 21,
+    slug: "quizora-v2",
+    title: "Quizora — Interactive Learning",
     category: "web",
-    description:
-      "A high-end fashion e-commerce platform built with Next.js and MERN stack, featuring seamless payments and dynamic collections.",
-    longDesc:
-      "Developed a responsive fashion e-commerce platform using Next.js and MERN stack. Features dynamic product filtering, real-time inventory management, and an optimized checkout flow designed for high conversion rates.",
-    img: "/images/p9.png",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript", "MERN Stack"],
+    description: "An advanced quiz platform featuring interactive learning paths, real-time leaderboards, and detailed analytics.",
+    longDesc: "Quizora is a next-generation learning platform that makes education engaging through gamification. It features a custom quiz engine, progress tracking, and social features to foster collaborative learning.",
+    img: "/quizora proejct website/quizora (5).jpeg",
+    tech: ["Next.js", "TypeScript", "Firebase", "Framer Motion"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
-    color: "#C8D751",
+    color: "#ef4444",
+    gallery: [
+      "/quizora proejct website/quizora (1).jpeg",
+      "/quizora proejct website/quizora (2).jpeg",
+      "/quizora proejct website/quizora (3).jpeg",
+      "/quizora proejct website/quizora (4).jpeg",
+      "/quizora proejct website/quizora (5).jpeg",
+      "/quizora proejct website/quizora (6).jpeg",
+      "/quizora proejct website/quizora (7).jpeg",
+      "/quizora proejct website/quizora (8).jpeg",
+      "/quizora proejct website/quizora (9).jpeg",
+      "/quizora proejct website/quizora (10).jpeg",
+      "/quizora proejct website/quizora (11).jpeg",
+      "/quizora proejct website/quizora (12).jpeg",
+      "/quizora proejct website/quizora (13).jpeg"
+    ]
   },
+
   {
     id: 2,
     slug: "fresh-basket",
@@ -355,6 +394,7 @@ const projectsList = [
   },
   {
     id: 5,
+    slug: "jasmina",
     title: "Jasmina — Portfolio",
     category: "design",
     description:
@@ -368,62 +408,18 @@ const projectsList = [
     featured: false,
     color: "#a855f7",
   },
-  {
-    id: 6,
-    title: "d.tampe — Brand Site",
-    category: "design",
-    description:
-      "Brand website for a creative agency with bold typography, parallax scrolling, and custom hover interactions.",
-    longDesc:
-      "Full brand site with custom scroll experiences, parallax effects, magnetic buttons, and animated page transitions.",
-    img: "/images/p3.png",
-    tech: ["React", "GSAP", "CSS3", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    color: "#06b6d4",
-  },
-  {
-    id: 7,
-    title: "Blimp.gr — SaaS Platform",
-    category: "web",
-    description:
-      "SaaS analytics dashboard with multi-tenant architecture, custom charts, data export, and team management.",
-    longDesc:
-      "Built a SaaS analytics platform with subscription billing, real-time data visualization using D3.js, team management, and white-label support.",
-    img: "/images/p4.png",
-    tech: ["Next.js", "TypeScript", "MongoDB", "Stripe", "D3.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    color: "#10b981",
-  },
-  {
-    id: 8,
-    title: "Lewis — Portfolio",
-    category: "design",
-    description:
-      "High-impact portfolio for a photographer with full-screen galleries, lazy loading, and cinematic transitions.",
-    longDesc:
-      "Photography portfolio with masonry gallery layout, lightbox, cinematic page transitions, and mobile-first design.",
-    img: "/images/p6.png",
-    tech: ["React", "GSAP", "CSS Grid", "Cloudinary"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    color: "#f59e0b",
-  },
+
   {
     id: 9,
     slug: "quizora",
     title: "Quizora — Quiz SaaS",
     category: "web",
     description:
-      "React Native driver app for Shipday with real-time order notifications, GPS tracking, and proof of delivery.",
+      "A comprehensive Shopify quiz application designed to enhance customer engagement and boost sales through personalized recommendations.",
     longDesc:
-      "Cross-platform mobile app for delivery drivers with real-time push notifications, Google Maps navigation, digital proof of delivery, and offline support.",
+      "Developed a high-performance Shopify public app using Remix and Polaris. Features advanced conditional logic for quizzes, automated product tagging, and seamless integration with Shopify's billing API.",
     img: "/images/p7.png",
-    tech: ["React Native", "Firebase", "Google Maps", "Node.js"],
+    tech: ["Shopify Remix", "Polaris", "GraphQL", "Node.js"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
@@ -431,21 +427,23 @@ const projectsList = [
   },
   {
     id: 10,
-    title: "Hawk Style Dashboard",
+    slug: "shipday-logistics",
+    title: "ShipDay — Logistics Management System",
     category: "web",
     description:
-      "Admin dashboard for a retail chain with inventory management, sales analytics, and employee management.",
+      "A comprehensive logistics and delivery management dashboard for real-time tracking, route planning, and fleet management.",
     longDesc:
-      "Full-featured admin panel with inventory tracking, sales funnel analytics, employee scheduling, and PDF report generation.",
+      "Developed a robust logistics platform inspired by systems like TCS. Features include real-time shipment tracking, automated route optimization, driver management, and advanced delivery analytics.",
     img: "/images/p8.png",
-    tech: ["React", "Node.js", "MySQL", "Chart.js"],
+    tech: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
-    color: "#8b5cf6",
+    color: "#6366f1",
   },
   {
     id: 11,
+    slug: "nixtio-marketplace",
     title: "Nixtio — Furniture Marketplace",
     category: "mobile",
     description:
@@ -459,53 +457,120 @@ const projectsList = [
     featured: true,
     color: "#4ade80",
   },
+
+
+
   {
-    id: 17,
-    title: "Mobile UI Design Kit",
-    category: "design",
+    id: 14,
+    slug: "coinwave",
+    title: "CoinWave — Crypto Trading",
+    category: "mobile",
     description:
-      "A comprehensive design system for modern mobile applications with hundreds of reusable components.",
+      "A sophisticated cryptocurrency exchange and trading platform with real-time market data and advanced charting.",
     longDesc:
-      "This UI Kit provides a robust foundation for building consistent and beautiful mobile interfaces, including typography, color systems, and interactive elements.",
-    img: "/apps screenshots/go-media-user-interface-design-mobile-2048x731.jpg",
-    tech: ["Figma", "Sketch", "Adobe XD", "UI Design"],
+      "CoinWave provides traders with a powerful interface for exchanging digital assets, managing portfolios, and analyzing market trends with precision and speed.",
+    img: "/apps screenshots/original-313ce9380bf93d8a63bca0172fcccca6.webp",
+    tech: ["React Native", "Web3.js", "Chart.js", "Node.js"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    color: "#8b5cf6",
+  },
+  {
+    id: 15,
+    slug: "tripglide",
+    title: "TripGlide — Travel Booking",
+    category: "mobile",
+    description:
+      "A premium travel companion app for exploring destinations, booking tours, and planning multi-day adventures.",
+    longDesc:
+      "TripGlide offers an immersive travel experience with expert-curated itineraries, high-quality destination photography, and seamless tour booking across South America and beyond.",
+    img: "/apps screenshots/original-5a0621b7a943fc636554615a823aa49d.webp",
+    tech: ["React Native", "Google Maps", "Firebase", "Amadeus API"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    color: "#3b82f6",
+  },
+  {
+    id: 16,
+    slug: "gourmetgrove",
+    title: "GourmetGrove — Food Delivery",
+    category: "mobile",
+    description:
+      "A premium food delivery and reservation app connecting users with elite restaurants and exclusive dining experiences.",
+    longDesc:
+      "GourmetGrove simplifies dining by offering seamless table reservations, real-time order tracking, and personalized culinary recommendations from the city's top-rated chefs.",
+    img: "/apps screenshots/original-ac3dbbf377894c99a2f38962bf293856.webp",
+    tech: ["React Native", "Node.js", "MongoDB", "Stripe"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
-    slug: "nixtio",
-    color: "#ec4899",
+    color: "#ff6b35",
   },
   {
-    id: 12,
-    slug: "shopify-inventory-pro",
-    title: "Shopify — Inventory Pro",
+    id: 18,
+    slug: "xefag",
+    title: "Xefag — Pharmacy App",
+    category: "mobile",
+    description:
+      "A modern pharmacy application for ordering medications, tracking prescriptions, and consulting with pharmacists.",
+    longDesc:
+      "Xefag revolutionizes the way you manage your health by providing an easy-to-use platform for purchasing healthcare products with fast delivery and expert medical guidance.",
+    img: "/apps screenshots/original-f14b1f6910cab67c2565d9a97004bfcd.webp",
+    tech: ["React Native", "Node.js", "MongoDB", "Express"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    color: "#fbbf24",
+  },
+  {
+    id: 19,
+    slug: "nixtio-scanner",
+    title: "Nixtio — AI Scanner",
+    category: "mobile",
+    description:
+      "A powerful AI-driven document scanner for digitizing, editing, and converting documents on the go.",
+    longDesc:
+      "Nixtio AI Scanner simplifies document management with high-precision OCR, automated edge detection, and seamless PDF/JPG conversion with smart organizational tools.",
+    img: "/apps screenshots/original-f61ad4c1ae2a222cdd4da78082ff7a7b.webp",
+    tech: ["React Native", "OpenCV", "TensorFlow.js", "Firebase"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    color: "#6366f1",
+  },
+  {
+    id: 22,
+    slug: "bondus",
+    title: "BondUs — Connect & Chat",
+    category: "mobile",
+    description:
+      "A proximity-based social ecosystem connecting you with local communities and professionals within a 25km radius.",
+    longDesc:
+      "BondUs bridges the gap between digital interaction and real-world connection. Users can discover experts nearby, join interest-led group chats, and build meaningful professional networks using smart filters and map-based discovery.",
+    img: "/apps screenshots/2a029619-77e0-4f95-8834-7af69eac8290.jpeg",
+    tech: ["React Native", "Firebase", "Node.js", "Google Maps API"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    color: "#6366f1",
+  },
+  {
+    id: 1,
+    slug: "mannorwear",
+    title: "MannorWear — Fashion E-commerce",
     category: "web",
     description:
-      "A custom Shopify app built with Remix and Polaris for real-time inventory synchronization across multiple warehouses.",
+      "A high-end fashion e-commerce platform built with Next.js and MERN stack, featuring seamless payments and dynamic collections.",
     longDesc:
-      "Developed a custom Shopify public app that integrates with external ERP systems to sync inventory levels across multi-location stores. Uses webhooks for real-time updates and GraphQL for high-performance data fetching.",
+      "Developed a responsive fashion e-commerce platform using Next.js and MERN stack. Features dynamic product filtering, real-time inventory management, and an optimized checkout flow designed for high conversion rates.",
     img: "/images/p9.png",
-    tech: ["Shopify Remix", "Polaris", "GraphQL", "Node.js", "Prisma"],
+    tech: ["Next.js", "Tailwind CSS", "TypeScript", "MERN Stack"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
-    color: "#95bf47",
-  },
-  {
-    id: 13,
-    slug: "luxury-watches-wp",
-    title: "WordPress — Luxury Watches",
-    category: "web",
-    description:
-      "A premium WooCommerce store for luxury watches with custom theme development and high-speed optimization.",
-    longDesc:
-      "Built a highly optimized e-commerce store using WordPress and WooCommerce. Developed a custom theme with ACF and Elementor Pro, focusing on mobile responsiveness and SEO performance.",
-    img: "/images/p10.png",
-    tech: ["WordPress", "WooCommerce", "PHP", "TailwindCSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    color: "#21759b",
+    color: "#C8D751",
   },
 ];
 

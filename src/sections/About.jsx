@@ -34,21 +34,33 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="w-full relative overflow-hidden py-28 md:py-48">
+    <section id="about" ref={sectionRef} className="w-full relative overflow-hidden py-20 md:py-28">
       {/* Spheres */}
       <div className="gradient-sphere about-sphere-1" />
       <div className="gradient-sphere about-sphere-2" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
-        {/* Title */}
-        <div className="about-title-wrap mb-20 opacity-0">
-          <span className="text-blue-400 text-xs sm:text-sm font-bold tracking-[0.4em] uppercase mb-4 block">01 — The Story</span>
-          <h2 className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl font-black gradient-title leading-[1.1] mb-6">
-            Architecting <br className="hidden md:block" /> Digital Identity
-          </h2>
-          <p className="text-white/60 text-base sm:text-lg md:text-xl mt-4 max-w-2xl leading-relaxed">
-            I am a <span className="text-white font-semibold italic">visionary developer</span> dedicated to bridging the gap between cutting-edge technology and human-centric design.
-          </p>
+        {/* Title Section - Professional Refinement */}
+        <div className="about-title-wrap mb-24 opacity-0 relative">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            {/* Decorative vertical line */}
+            <div className="hidden md:block w-1.5 h-48 bg-gradient-to-b from-blue-600 via-blue-400 to-transparent rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]" />
+            
+            <div className="flex-1">
+              <span className="text-blue-500 text-xs sm:text-sm font-black tracking-[0.5em] uppercase mb-6 block drop-shadow-sm">
+                01 — THE STORY
+              </span>
+              <h2 className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[1] mb-8 tracking-tighter">
+                Architecting <br className="hidden md:block" /> 
+                <span className="gradient-title-blue">Digital Identity</span>
+              </h2>
+              <div className="max-w-3xl border-l-4 md:border-l-0 border-blue-500 pl-6 md:pl-0">
+                <p className="text-white/70 text-lg sm:text-xl md:text-2xl font-medium leading-relaxed italic">
+                  "I am a <span className="text-white font-bold not-italic border-b-2 border-blue-500/30">visionary developer</span> dedicated to bridging the gap between cutting-edge technology and human-centric design."
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Stats Row */}
@@ -82,15 +94,18 @@ const About = () => {
               </div>
               <div className="space-y-6">
                 <p className="text-white/70 text-lg sm:text-xl leading-relaxed font-medium">
-                  Based in <span className="text-white underline decoration-blue-500 underline-offset-4">Pakistan</span> — I am a Full Stack Developer & Shopify Expert with over <span className="text-white font-bold underline decoration-pink-500 underline-offset-4">4 years</span> of professional experience.
+                  Based in <span className="text-white underline decoration-blue-500 underline-offset-4">Pakistan</span> — I am a Full Stack Developer & App Engineer with over <span className="text-white font-bold underline decoration-pink-500 underline-offset-4">4 years</span> of professional experience.
                 </p>
                 <p className="text-white/50 text-base sm:text-lg leading-relaxed">
-                  I specialize in building high-performance e-commerce ecosystems using Shopify, WooCommerce, and the MERN stack. From custom Shopify App development to complex enterprise dashboards, I've transformed 100+ visions into scalable, revenue-driving realities for global clients.
+                  My expertise spans modern web development (<span className="text-white font-medium">MERN stack, Next.js</span>), robust backend architecture (<span className="text-white font-medium">PHP, Laravel, Node.js</span>), and database management using <span className="text-white font-medium">MySQL, PostgreSQL, and SQLite</span> with advanced ORMs like Prisma and Sequelize. I also build high-performance, cross-platform mobile applications for iOS and Android using <span className="text-white font-medium">React Native (CLI & Expo)</span>.
+                </p>
+                <p className="text-white/50 text-base sm:text-lg leading-relaxed">
+                  Beyond custom apps, I am a seasoned e-commerce strategist. I engineer <span className="text-white font-medium">Custom Shopify Apps (Remix)</span>, scalable Shopify storefronts, and bespoke <span className="text-white font-medium">WordPress solutions</span> including custom plugin development. To make my projects stand out, I integrate cutting-edge visual experiences—building animated websites and 3D interfaces with <span className="text-white font-medium">Three.js, Framer Motion, and GSAP</span>. From system architecture to seamless cloud deployment, I transform complex visions into revenue-driving realities.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-10">
-                {["System Architect", "UI Strategist", "3D Tinkerer", "Motion Specialist"].map((t) => (
-                  <span key={t} className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-white/50 hover:text-white hover:border-blue-500 transition-all duration-300">{t}</span>
+                {["Full Stack Engineer", "React Native Dev", "Shopify App Expert", "3D & Animations", "Database Architect", "WordPress Dev"].map((t) => (
+                  <span key={t} className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-white/50 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-[0_4px_10px_rgba(0,0,0,0.1)]">{t}</span>
                 ))}
               </div>
             </div>

@@ -55,16 +55,13 @@ const Hero = () => {
 
       {/* ─── MOBILE: Background Text Layer (z-0, behind character) ─── */}
       <div className="lg:hidden absolute top-[12%] left-6 right-6 z-0 flex flex-col items-start pointer-events-none">
-        <div className="hero-greeting opacity-0 flex items-center gap-2 mb-2">
-          <span className="text-xl drop-shadow-md">👋</span>
-          <span className="text-white font-bold tracking-wide text-sm drop-shadow-md">Hey, I'm Here</span>
-        </div>
-        <div className="flex flex-col tracking-tighter ml-[-2px]">
-          <h1 className="hero-name font-black text-[18vw] leading-[0.82] text-white opacity-0 uppercase drop-shadow-lg">
-            ABDULLAH
+
+        <div className="flex flex-col tracking-[-0.03em] ml-[-2px]">
+          <h1 className="hero-name font-black text-[18vw] leading-[0.82] text-white opacity-0 uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            MUHAMMAD
           </h1>
-          <h1 className="hero-name font-black text-[18vw] leading-[0.82] text-white opacity-0 uppercase drop-shadow-lg">
-            CREATIVE
+          <h1 className="hero-name font-black text-[18vw] leading-[0.82] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 uppercase drop-shadow-[0_10px_20px_rgba(59,130,246,0.2)]">
+            ABDULLAH
           </h1>
         </div>
       </div>
@@ -78,22 +75,17 @@ const Hero = () => {
       </div>
 
       {/* ─── Main Content Wrapper (z-20, above character) ─── */}
-      <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-between pt-20 pb-10 pointer-events-none lg:pointer-events-auto">
+      <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-between pt-32 pb-24 pointer-events-none lg:pointer-events-auto">
 
         {/* Top Content (Desktop View) - Hidden on Mobile */}
-        <div className="hidden lg:block mt-2 sm:mt-4 lg:mt-2">
-          <div className="hero-greeting opacity-0 inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.12] backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-            <span className="text-base">👋</span>
-            <span className="text-[11px] sm:text-sm font-bold text-blue-300 tracking-[0.28em] uppercase">Welcome to my world</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-          </div>
-          <div className="overflow-hidden mb-1">
-            <h1 className="hero-name font-black text-[3.4rem] sm:text-7xl md:text-8xl lg:text-[5.5rem] xl:text-[7rem] leading-[0.88] tracking-tighter text-white opacity-0">
+        <div className="hidden lg:block mt-8 max-w-3xl">
+          <div className="overflow-hidden mb-[-8px] relative">
+            <h1 className="hero-name font-black text-[3rem] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[6rem] leading-[0.9] tracking-[-0.03em] text-white opacity-0 uppercase drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
               MUHAMMAD
             </h1>
           </div>
-          <div className="overflow-hidden">
-            <h1 className="hero-name font-black text-[3.4rem] sm:text-7xl md:text-8xl lg:text-[5.5rem] xl:text-[7rem] leading-[0.88] tracking-tighter text-white opacity-0">
+          <div className="overflow-hidden relative">
+            <h1 className="hero-name font-black text-[3rem] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[6rem] leading-[0.9] tracking-[-0.03em] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 uppercase drop-shadow-[0_10px_30px_rgba(59,130,246,0.25)]">
               ABDULLAH
             </h1>
           </div>
@@ -125,35 +117,33 @@ const Hero = () => {
         <div className="hidden lg:flex flex-row items-end justify-between gap-16">
 
           {/* Left: role + desc + CTAs */}
-          <div className="flex flex-col gap-10 max-w-xl">
+          <div className="flex flex-col gap-8 max-w-xl">
 
             {/* Typewriter role */}
             <div className="hero-role-wrap flex items-center gap-4 opacity-0">
-              <span className="w-12 h-[2px] bg-gradient-to-r from-blue-400 to-pink-500 flex-shrink-0" />
-              <span className="gradient-title-blue text-3xl font-black tracking-tight uppercase">
+              <span className="w-10 h-[2px] bg-gradient-to-r from-blue-400 to-pink-500 flex-shrink-0" />
+              <span className="gradient-title-blue text-2xl font-black tracking-tight uppercase">
                 {displayed}
-                <span className="inline-block w-[4px] h-7 bg-pink-500 ml-2 animate-pulse shadow-[0_0_15px_rgba(255,40,213,0.5)]" />
+                <span className="inline-block w-[3px] h-6 bg-pink-500 ml-2 animate-pulse shadow-[0_0_10px_rgba(255,40,213,0.5)]" />
               </span>
             </div>
 
-            <p className="hero-desc text-white/70 text-xl leading-relaxed max-w-lg opacity-0 font-medium">
+            <p className="hero-desc text-white/60 text-lg leading-relaxed max-w-md opacity-0 font-medium">
               With over{" "}
-              <span className="text-white font-bold border-b-2 border-blue-500/30">
-                4 years of professional experience
-              </span>, 
-              I build scalable Full Stack apps and specialized Shopify/WooCommerce solutions that drive growth.
+              <span className="text-white font-bold">4+ years of experience</span>, 
+              I build high-performance Full Stack apps and specialized e-commerce solutions.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-4">
               <a
                 href="#projects"
                 onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="hero-cta btn-primary opacity-0 group"
+                className="hero-cta btn-primary opacity-0 group !px-6 !py-3"
               >
-                <span className="text-[1.05rem] tracking-wide">Explore Projects</span>
-                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span className="text-sm tracking-wide">Explore Projects</span>
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
@@ -161,9 +151,9 @@ const Hero = () => {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="hero-cta btn-outline opacity-0 backdrop-blur-sm"
+                className="hero-cta btn-outline opacity-0 backdrop-blur-sm !px-6 !py-3"
               >
-                <span className="text-[1.05rem] tracking-wide">Start a Project</span>
+                <span className="text-sm tracking-wide">Start a Project</span>
               </a>
             </div>
           </div>
@@ -181,13 +171,13 @@ const Hero = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-social opacity-0 w-12 h-12 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-500 group"
+                  className="hero-social opacity-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-500 group"
                   aria-label={s.label}
                 >
                   <img
                     src={`/images/${s.icon}.svg`}
                     alt={s.label}
-                    className="w-6 h-6 opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    className="w-5 h-5 opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                   />
                 </a>
               ))}
@@ -197,7 +187,7 @@ const Hero = () => {
               <span className="text-white/20 text-[10px] font-bold tracking-[0.3em] uppercase [writing-mode:vertical-lr]">
                 SCROLL
               </span>
-              <div className="w-[1px] h-20 bg-gradient-to-b from-blue-500 via-pink-500 to-transparent relative overflow-hidden">
+              <div className="w-[1px] h-16 bg-gradient-to-b from-blue-500 via-pink-500 to-transparent relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-white/50 animate-[scroll-hint_2s_infinite]" />
               </div>
             </div>

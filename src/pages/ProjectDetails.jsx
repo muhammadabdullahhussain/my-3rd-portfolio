@@ -2,7 +2,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsList } from "../constants";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetails = () => {
   const { slug } = useParams();
@@ -23,6 +26,23 @@ const ProjectDetails = () => {
       gsap.fromTo(".p-image", { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out", delay: 0.2 });
       gsap.fromTo(".p-content", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out", delay: 0.5 });
       gsap.fromTo(".p-sidebar", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out", delay: 0.7 });
+      
+      if (project.gallery) {
+        gsap.fromTo(".gallery-item", 
+          { opacity: 0, y: 30 }, 
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8, 
+            stagger: 0.1, 
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".p-gallery",
+              start: "top 80%",
+            }
+          }
+        );
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -150,6 +170,29 @@ const ProjectDetails = () => {
             </div>
           </div>
         </div>
+
+        {/* Gallery Section */}
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="mt-32 p-gallery">
+            <h2 className="text-white/30 text-xs font-black uppercase tracking-[0.4em] mb-12">Project Showcase</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {project.gallery.map((img, index) => (
+                <div 
+                  key={index} 
+                  className="gallery-item relative aspect-video rounded-2xl overflow-hidden border border-white/5 group"
+                >
+                  <img 
+                    src={img} 
+                    alt={`${project.title} screenshot ${index + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
